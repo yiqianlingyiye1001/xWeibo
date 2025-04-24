@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+  }
+  body {
+    background-image: url(https://ts1.tc.mm.bing.net/th/id/R-C.cce09192d622f8346751e371141e6608?rik=33kZCf4TAn30HA&riu=http%3a%2f%2fimg.wxcha.com%2ffile%2f201904%2f19%2f0c40dbdd05.jpg&ehk=6eWqhPz2NzmZsOvanreP8yPKIsuuTo7uHFs74oDydbU%3d&risl=&pid=ImgRaw&r=0);
+    background-size: cover;      /* 覆盖整个屏幕 */
+    background-repeat: no-repeat; /* 禁止重复 */
+    background-position: center;  /* 居中显示 */
+    background-attachment: fixed; /* 固定背景（可选） */
+  }
+  
+ 
+</style>
+
+   <!-- 典型协作示例：按钮点击计数 -->
+
+<body>
+  <div id="content">默认内容</div>
+  <button onclick="loadHome()">首页</button>
+  <button onclick="loadAbout()">关于</button>
+  
+
+  <p>点击次数：<span id="count">0</span></p> <!-- HTML 结构 -->
+  <button id="btn">点我+1</button>
+  
+  <style>
+    /* CSS 美化 */
+    #btn { 
+      background: blue; 
+      color: white; 
+      padding: 10px;
+    }
+  </style>
+
+<script>
+  function loadHome() {
+    document.getElementById("content").innerHTML = `
+      <h1>欢迎访问首页</h1>
+      <p>动态加载的内容</p>
+    `;
+  }
+  
+  function loadAbout() {
+    document.getElementById("content").innerHTML = `
+      <h2>关于我们</h2>
+      <p>公司简介...</p>
+    `;
+  }
+  </script>
+
+  <script>
+    // JavaScript 交互
+    document.getElementById("btn").onclick = () => {
+      const countElement = document.getElementById("count");
+      countElement.textContent = parseInt(countElement.textContent) + 1;
+    };
+  </script>
+</body>
+    
+
+
+</html>

@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>xWb</title>
+    <style>
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+        }
+
+        body {
+            background-image: url(https://ts1.tc.mm.bing.net/th/id/R-C.cce09192d622f8346751e371141e6608?rik=33kZCf4TAn30HA&riu=http%3a%2f%2fimg.wxcha.com%2ffile%2f201904%2f19%2f0c40dbdd05.jpg&ehk=6eWqhPz2NzmZsOvanreP8yPKIsuuTo7uHFs74oDydbU%3d&risl=&pid=ImgRaw&r=0);
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-attachment: fixed;
+        }
+
+        div#head-part {
+            top: 40px;
+            width: 80%;
+            left: 50%;
+            height: 150px;
+            position: fixed;
+            transform: translateX(-50%);
+            color: white;
+            text-align: center;
+            padding-top: 0;
+            font-size: 2em;
+            border-radius: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            /* 新增flex布局 三件套让导航栏内的内容实现水平垂直居中排列*/
+            display: flex;
+            justify-content: center;
+            /* 水平居中 */
+            align-items: center;
+            /* 垂直居中 */
+            font-weight: 700;
+            /* 相当于bold 新增文字基础样式 加粗*/
+        }
+
+        div#contop {
+            position: fixed;
+            top: 20%;
+
+            width: 80%;
+            margin-left: 140px;
+
+
+            padding: 1rem;
+
+            z-index: 1000;
+            /*导航栏表面悬浮*/
+            /* 新增flex布局 三件套让导航栏内的内容实现水平垂直居中排列*/
+            display: flex;
+            justify-content: center;
+            /* 水平居中 */
+            align-items: center;
+            /* 垂直居中 */
+            font-weight: 700;
+            /* 相当于bold 新增文字基础样式 加粗*/
+        }
+
+        /* 设置链接样式 */
+        div#contop a {
+            color: #000000 !important;
+            /* 强制黑色 */
+            text-decoration: none;
+            /* 移除下划线 */
+            margin: 0 20px;
+            /* 链接间距 */
+            font-size: 1.1em;
+            /* 适当放大 */
+            transition: all 0.3s ease;
+            /* 悬停动效 全部 延迟 速度 */
+        }
+
+        /* 悬停效果增强 */
+        div#contop a:hover {
+            color: #2d7df6 !important;
+            /*强制蓝色*/
+            transform: translateY(-2px);
+            /*向上悬浮元素*/
+        }
+
+        div#part-left1 {
+            position: absolute;
+            top: 35%;
+            width: 500px;
+            left: 10%;
+            height: auto;
+            padding: 20px;
+
+            border-radius: 8px;
+            box-shadow: 10px 10px 5px #1a1818;
+            border: 2px solid;
+            border-radius: 25px;
+
+            background-color: #fbfbfb;
+            border: 1px solid black;
+
+            opacity: 0.6;
+            filter: alpha(opacity=60);
+            /*tou透明*/
+        }
+        div#part-left2 {
+            position: absolute;
+            top: 100%;
+            width: 500px;
+            left: 10%;
+            height: auto;
+            padding: 20px;
+
+            border-radius: 8px;
+            box-shadow: 10px 10px 5px #1a1818;
+            border: 2px solid;
+            border-radius: 25px;
+
+            background-color: #fbfbfb;
+            border: 1px solid black;
+
+            opacity: 0.6;
+            filter: alpha(opacity=60);
+            /*tou透明*/
+        }
+        div#part-left3 {
+            position: absolute;
+            top: 170%;
+            width: 500px;
+            left: 10%;
+            height: auto;
+            padding: 20px;
+
+            border-radius: 8px;
+            box-shadow: 10px 10px 5px #1a1818;
+            border: 2px solid;
+            border-radius: 25px;
+
+            background-color: #fbfbfb;
+            border: 1px solid black;
+
+            opacity: 0.6;
+            filter: alpha(opacity=60);
+            /*tou透明*/
+        }
+        div#part-right1 {
+            position: absolute;
+            top: 40%;
+            width: 500px;
+            right: 5%;
+            height: auto;
+            text-align: right;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 10px 10px 5px #1a1818;
+            border: 2px solid;
+            border-radius: 25px;
+            border: 1px solid black;
+            filter: alpha(opacity=60);
+            /*tou透明*/
+        }
+        div#part-right2 {
+            position: absolute;
+            top: 80%;
+            width: 500px;
+            right: 15%;
+            height: auto;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 10px 10px 5px #1a1818;
+            border: 2px solid;
+            border-radius: 25px;
+
+            background-color: #fbfbfb;
+            border: 1px solid black;
+
+            opacity: 0.6;
+            filter: alpha(opacity=60);
+            /*tou透明*/
+        }
+        div#part-right3 {
+            position: absolute;
+            top: 150%;
+            width: 500px;
+            right: 15%;
+            height: auto;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 10px 10px 5px #1a1818;
+            border: 2px solid;
+            border-radius: 25px;
+
+            background-color: #fbfbfb;
+            border: 1px solid black;
+
+            opacity: 0.6;
+            filter: alpha(opacity=60);
+            /*tou透明*/
+        }
+        div#back-top {
+            position: fixed;
+            font-size: 1em;
+            right: 7%;
+            bottom: 7%;
+        }
+
+        div#img {
+            position: absolute;
+            top: 25%;
+            left: 20%;
+            /*图片大小调整*/
+        }
+
+        .circleimg {
+            width: 200px;
+            /* 宽度需与高度相等 */
+            height: 200px;
+            border-radius: 50%;
+            /* 边角圆化 */
+            object-fit: cover;
+            /* 保持图片比例 */
+            box-shadow: 10px 10px 5px #f3f3f3;
+            border: 1px solid black;
+            /*边框设置*/
+        }
+    </style>
+
+</head>
+
+<body>
+<div id = "destory">
+    <div id="head-part">
+        <h1>Welcome to xWeibo </h1>
+    </div>
+
+    <div id="contop">
+        <button onclick="loadHome1()">one</button>
+        <button onclick="loadHome2()">two</button>
+        <button onclick="loadHome3()">three</button>
+        <button onclick="loadHome4()">four</button>
+        <button onclick="loadHome5()">five</button>
+    
+        <a href="#no6">part six</a>
+        <a href="#no7">part seven</a>
+        <a href="#no8">part eight</a>
+        <a href="#no9">part nine</a>
+        <a href="#no10">part ten</a>
+        <a href="#no11">part eleven</a>
+        <a href="#no12">part twelve</a>
+    </div>
+    <button onclick="loadHome6()">毁灭吧</button>
+    
+
+  
+  
+    <div>
+        <h2> &nbsp; &nbsp; “荔枝”</h2>
+        <p>你把思考交给了电视，把联系交给了手机，把双腿交给了汽车，把健康交给了药丸。
+            不是某人使你烦恼，而是你拿某人的言行来烦恼自己。
+            人生要用简单的心境，对待复杂的人生，最无情的不是人，是时间；最珍贵的不是金钱，是情感；最可怕的不是失恋，是心身不全；最舒适的不是酒店，是家里；最难听的不是脏话，是无言；最美好的不是未来，是今天.
+        </p>
+        <p>你要相信，生活是有意义的。即使是看似平淡无奇的日子，也会在某一天，给你带来意想不到的惊喜。
+            生活的意义在于坚持，哪怕是再小的坚持，也会在时间的积累中，变得无比珍贵。
+            看似不起波澜的日复一日，一定会在某一天，让你看到坚持的意义。
+            坚持的意义是，以后回想起来的时候，你会庆幸“真好，我撑过来了”，而不是后悔“要是当初再……就好了”。
+            世之奇伟、瑰怪、非常之观常在于险远，而人之所罕至焉，故非有志者不能至也.
+        </p>
+        <p>为了世界上的所有美好而战</p>
+        <p></p>
+    </div>
+    <div id="part-left1">
+        <h2> &nbsp; &nbsp; “荔枝”</h2>
+        <p>你把思考交给了电视，把联系交给了手机，把双腿交给了汽车，把健康交给了药丸。
+            不是某人使你烦恼，而是你拿某人的言行来烦恼自己。
+            人生要用简单的心境，对待复杂的人生，最无情的不是人，是时间；最珍贵的不是金钱，是情感；最可怕的不是失恋，是心身不全；最舒适的不是酒店，是家里；最难听的不是脏话，是无
+        </p>
+        <li>
+            oj
+        </li>
+        <li>
+            oj
+        </li>
+        <li>
+            ok
+        </li>
+        <li>
+            oj
+        </li>
+        <li>
+            oj
+        </li>
+        <li>
+            ok
+        </li>
+        <li>
+            oj
+        </li>
+        <li>
+            oj
+        </li>
+        <li>
+            ok
+        </li>
+        <li>
+            oj
+        </li>
+        <li>
+            oj
+        </li>
+        <li>
+            ok
+        </li>
+    </div>
+   
+    <div id="part-left2">
+        <h2> &nbsp; &nbsp; “荔枝”</h2>
+        <p>你把思考交给了电视，把联系交给了手机，把双腿交给了汽车，把健康交给了药丸。
+            不是某人使你烦恼，而是你拿某人的言行来烦恼自己。
+            人生要用简单的心境，对待复杂的人生，最无情的不是人，是时间；最珍贵的不是金钱，是情感；最可怕的不是失恋，是心身不全；最舒适的不是酒店，是家里；最难听的不是脏话，是无
+        </p>
+        <li>
+            oj
+        </li>
+        <li>
+            oj
+        </li>
+        <li>
+            ok
+        </li>
+        <li>
+            oj
+        </li>
+        <li>
+            oj
+        </li>
+        <li>
+            ok
+        </li>
+        <li>
+            oj
+        </li>
+        <li>
+            oj
+        </li>
+        <li>
+            ok
+        </li>
+        <li>
+            oj
+        </li>
+        <li>
+            oj
+        </li>
+        <li>
+            ok
+        </li>
+    </div>
+    <div id="part-left3">
+        <h2> &nbsp; &nbsp; “荔枝”</h2>
+        <p>你把思考交给了电视，把联系交给了手机，把双腿交给了汽车，把健康交给了药丸。
+            不是某人使你烦恼，而是你拿某人的言行来烦恼自己。
+            人生要用简单的心境，对待复杂的人生，最无情的不是人，是时间；最珍贵的不是金钱，是情感；最可怕的不是失恋，是心身不全；最舒适的不是酒店，是家里；最难听的不是脏话，是无
+        </p>
+        <li>
+            oj
+        </li>
+        <li>
+            oj
+        </li>
+        <li>
+            ok
+        </li>
+        <li>
+            oj
+        </li>
+        <li>
+            oj
+        </li>
+        <li>
+            ok
+        </li>
+        <li>
+            oj
+        </li>
+        <li>
+            oj
+        </li>
+        <li>
+            ok
+        </li>
+        <li>
+            oj
+        </li>
+        <li>
+            oj
+        </li>
+        <li>
+            ok
+        </li>
+    </div>
+    <div id="part-right1">
+        <div id="imge" style="display: flex; align-items: center;">
+            <p style="margin-right: 20px;">“你问我想要的是什么，听我最爱的歌走遍自己的快乐 
+                ······”</p>
+            <img class="circleimg" src="微信图片_20250419141540.jpg" alt="文件来源好像出了点错误qwq">
+        </div>
+    </div>
+    <div id="part-right2">
+        <h2> &nbsp; &nbsp; “荔枝”</h2>
+        <p>你把思考交给了电视，把联系交给了手机，把双腿交给了汽车，把健康交给了药丸。
+            不是某人使你烦恼，而是你拿某人的言行来烦恼自己。
+            人生要用简单的心境，对待复杂的人生，最无情的不是人，是时间；最珍贵的不是金钱，是情感；最可怕的不是失恋，是心身不全；最舒适的不是酒店，是家里；最难听的不是脏话，是无
+        </p>
+        <li>
+            oj
+        </li>
+        <li>
+            oj
+        </li>
+        <li>
+            ok
+        </li>
+        <li>
+            oj
+        </li>
+        <li>
+            oj
+        </li>
+        <li>
+            ok
+        </li>
+        <li>
+            oj
+        </li>
+        <li>
+            oj
+        </li>
+        <li>
+            ok
+        </li>
+        <li>
+            oj
+        </li>
+        <li>
+            oj
+        </li>
+        <li>
+            ok
+        </li>
+    </div>
+    <div id="part-right3">
+        <h2> &nbsp; &nbsp; “荔枝”</h2>
+        <p>你把思考交给了电视，把联系交给了手机，把双腿交给了汽车，把健康交给了药丸。
+            不是某人使你烦恼，而是你拿某人的言行来烦恼自己。
+            人生要用简单的心境，对待复杂的人生，最无情的不是人，是时间；最珍贵的不是金钱，是情感；最可怕的不是失恋，是心身不全；最舒适的不是酒店，是家里；最难听的不是脏话，是无
+        </p>
+        <li>
+            oj
+        </li>
+        <li>
+            oj
+        </li>
+        <li>
+            ok
+        </li>
+        <li>
+            oj
+        </li>
+        <li>
+            oj
+        </li>
+        <li>
+            ok
+        </li>
+        <li>
+            oj
+        </li>
+        <li>
+            oj
+        </li>
+        <li>
+            ok
+        </li>
+        <li>
+            oj
+        </li>
+        <li>
+            oj
+        </li>
+        <li>
+            ok
+        </li>
+    </div>
+
+
+    <div id="back-top">
+        <a href="#head-part">返回顶部</a> &nbsp;言；最美好的不是未来，是今天.
+    </div>
+
+</div>
+
+    <script>
+        function loadHome1() {
+            document.getElementById("part-left1").innerHTML = `
+                <h1>qwq</h1>
+                <p>你好，玩原神吗？</p>
+            `;
+        }
+        function loadHome2() {
+            document.getElementById("part-left1").innerHTML = `
+                <h1>qwq</h1>
+                <p>你好，玩原神吗？</p>
+            `;
+        }
+        function loadHome3() {
+            document.getElementById("part-left1").innerHTML = `
+                <h1>qwq</h1>
+                <p>你好，玩原神吗？</p>
+            `;
+        }
+        function loadHome4() {
+            document.getElementById("part-left1").innerHTML = `
+                <h1>qwq</h1>
+                <p>你好，玩原神吗？</p>
+            `;
+        }
+        function loadHome5() {
+            document.getElementById("part-left1").innerHTML = `
+                <h1>qwq</h1>
+                <p>你好，玩原神吗？</p>
+            `;
+        }
+        function loadHome6() {
+            document.getElementById("destory").innerHTML = `
+                <h1>qwq</h1>
+                <p>你好，玩原神吗？</p>
+            `;
+        }
+    </script>
+
+   
+
+
+
+
+
+
+
+</body>
+
+</html>
